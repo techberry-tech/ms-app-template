@@ -1,0 +1,23 @@
+{
+  // ใช้ TypeScript version จาก node_modules (เพื่อรองรับ Bun types)
+  "typescript.tsdk": "node_modules/typescript/lib",
+
+  // เปิดให้ตรวจ type ตาม tsconfig
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+
+  // Format อัตโนมัติด้วย Prettier
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+
+  // เปิด IntelliSense ให้รู้จัก Bun
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "javascript.preferences.importModuleSpecifier": "non-relative",
+
+  // รัน Bun แทน Node.js เวลาทดสอบโค้ด
+  "debug.javascript.runtimeExecutable": "bun",
+  "debug.javascript.autoAttachFilter": "disabled",
+
+  // ESLint integration (ถ้ามี)
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+  "eslint.run": "onSave"
+}
