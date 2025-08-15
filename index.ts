@@ -1,13 +1,21 @@
 import { Hono } from "hono";
 import { serve } from "bun";
 import { mkdir } from "node:fs/promises";
+import { logger } from "hono/logger";
+
 import path from "node:path";
 
 const app = new Hono();
 
-app.get("/health", (c) => {
-  c.status(201);
+app.use(logger());
+
+app.get("/health", async (c) => {
   return c.json({ status: "ok" });
+});
+
+app.post("/echo", async (c) => {
+  const body = await c.req.json();
+  return c.json(body);
 });
 
 app.post("/api/upload", async (c) => {
