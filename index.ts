@@ -6,8 +6,13 @@ import { logger } from "hono/logger";
 import path from "node:path";
 
 const app = new Hono();
+const uploadDir = "/tmp/uploads";
 
 app.use(logger());
+
+app.get("/", (c) => {
+  return c.json({ message: "Hello World" });
+});
 
 app.get("/health", async (c) => {
   return c.json({ status: "ok" });
@@ -32,7 +37,6 @@ app.post("/api/upload", async (c) => {
   }
 
   // เตรียมโฟลเดอร์ปลายทาง
-  const uploadDir = "./uploads";
   await mkdir(uploadDir, { recursive: true });
 
   // ตั้งชื่อไฟล์แบบปลอดภัย + กันชนกันชื่อซ้ำ
@@ -50,6 +54,13 @@ app.post("/api/upload", async (c) => {
     type: file.type,
     path: filepath,
   });
+});
+
+app.get("/download/:filename", async (c) => {
+  const filename = c.req.param("filename");
+  const filePath = path.join(uploadDir, filename);
+
+  return new Response(Bun.file(filePath));
 });
 
 // รันเซิร์ฟเวอร์
