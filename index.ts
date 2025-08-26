@@ -15,7 +15,7 @@ app.get("/", (c) => {
 });
 
 app.get("/health", async (c) => {
-  return c.json({ status: "ok" });
+  return c.json({ status: "ok", appName: "Upload file", version: "1.0.0" });
 });
 
 app.post("/echo", async (c) => {
