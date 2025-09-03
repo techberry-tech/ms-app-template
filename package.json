@@ -1,5 +1,6 @@
 {
-  "name": "bun-transform",
+  "name": "ms-app-template",
+  "version": "1.0.0",
   "module": "index.ts",
   "type": "module",
   "private": true,
