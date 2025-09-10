@@ -52,3 +52,35 @@ You can access these variables in your code using `process.env.KEY`.
 For production builds, update your environment variables in the `.env.production` file. When you run `./build-image-production.sh`, this file will be automatically added to the image as `.env`.
 
 This ensures your production container uses the correct environment settings.
+
+## Code Formatting
+
+This project uses Prettier and EditorConfig to maintain consistent code formatting across the team. This helps prevent formatting-related merge conflicts.
+
+### Setup in VS Code
+
+1. Install the [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) extension
+2. VS Code should automatically use the project's Prettier configuration
+3. Files will be automatically formatted when you save them
+
+### Configuration Files
+
+- `.prettierrc` - Contains Prettier configuration:
+  - 2 spaces indentation
+  - Single quotes
+  - Semicolons at line ends
+  - 100 characters line length
+  - ES5 trailing commas
+
+- `.editorconfig` - Ensures consistent basic formatting:
+  - UTF-8 encoding
+  - LF line endings
+  - 2 spaces indentation
+  - Trim trailing whitespace
+
+### Best Practices
+
+1. Always pull the latest changes before starting work
+2. Make sure format-on-save is enabled in your editor
+3. Run Prettier on your files before committing if they weren't auto-formatted
+4. If you use a different editor than VS Code, make sure it supports EditorConfig
