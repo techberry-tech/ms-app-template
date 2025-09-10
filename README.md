@@ -66,6 +66,7 @@ This project uses Prettier and EditorConfig to maintain consistent code formatti
 ### Configuration Files
 
 - `.prettierrc` - Contains Prettier configuration:
+
   - 2 spaces indentation
   - Single quotes
   - Semicolons at line ends
